@@ -1,5 +1,5 @@
 
-# Flask and Heroku
+# A Sandox for Flask and Heroku
 
 I am preparing for a new project, and am testing out the Flask framework.
 Additionally, I am becoming more comfortable with hosting via Heroku.
@@ -42,3 +42,9 @@ As I go forward I am experimenting with Flask and Heroku some more.
 
 - The folder `app` will contain code for the server to use, and resources like 
   HTML, CSS, and images that are sent.
+
+---
+
+## Flask
+
+- TODO: Add notes

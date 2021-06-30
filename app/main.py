@@ -1,6 +1,6 @@
 # Following the tutorial here: https://www.geeksforgeeks.org/deploy-python-flask-app-on-heroku/
 
-from flask import Flask
+from flask import Flask, render_template
 
 
 # This app uses the functions with the @app.route() decorator.
@@ -12,6 +12,11 @@ app = Flask(__name__)
 @app.route("/")
 def home_page():
     return "<h1> This is the homepage. </h1>"
+
+# Sample HTML page (non template)
+@app.route("/sample")
+def sample():
+    return render_template('sample.html');
 
 # Old Homepage (Add /deprecated to url)
 @app.route("/deprecated")
