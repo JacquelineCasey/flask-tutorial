@@ -42,6 +42,3 @@ As I go forward I am experimenting with Flask and Heroku some more.
 
 - The folder `app` will contain code for the server to use, and resources like 
   HTML, CSS, and images that are sent.
-
-
-
