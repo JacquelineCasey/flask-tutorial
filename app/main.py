@@ -16,7 +16,7 @@ def home_page():
 # Sample HTML page (non template)
 @app.route("/sample")
 def sample():
-    return render_template('sample.html');
+    return render_template('sample.html')
 
 # Old Homepage (Add /deprecated to url)
 @app.route("/deprecated")
