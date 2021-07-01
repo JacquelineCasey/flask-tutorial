@@ -70,7 +70,7 @@ As I go forward I am experimenting with Flask and Heroku some more.
   HTML in the form of a string. The `\deprecated` endpoint does this, for 
   example.
 
-- Alternatively, you write HTML in seperate files (in fact, you can write 
+- Alternatively, you can write HTML in seperate files (in fact, you can write 
   templates, but normal HTML also works). The `render_template()` function 
   generates the full response object to be sent. See `\sample` or the homepage.
 
