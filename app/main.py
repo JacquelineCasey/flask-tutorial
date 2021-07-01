@@ -1,6 +1,6 @@
 # Following the tutorial here: https://www.geeksforgeeks.org/deploy-python-flask-app-on-heroku/
 
-from flask import Flask, render_template
+from flask import Flask, render_template, url_for, redirect
 import os # For checking environment variables.
 
 
@@ -31,3 +31,10 @@ def env_check():
         return "<h1>Checking environment variable $MESSAGE: No variable found </h1>"
     else:
         return "<h1>Checking environment variable $MESSAGE: " + message + " </h1>"
+
+# A demonstration of a redirect response.
+# url_for() determines the url given the FUNCTION NAME of the endpoint, so
+# "old_view" redirects to the /deprecated site.
+@app.route("/redirect")
+def redirecting_page():
+    return redirect(url_for("old_view"))
