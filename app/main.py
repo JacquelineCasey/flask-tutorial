@@ -11,7 +11,7 @@ app = Flask(__name__)
 # Homepage
 @app.route("/")
 def home_page():
-    return "<h1> This is the homepage. </h1>"
+    return render_template('index.html')
 
 # Sample HTML page (non template)
 @app.route("/sample")

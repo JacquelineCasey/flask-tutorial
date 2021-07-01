@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+  <!-- 
+  Locates and applies the stylesheet, using templating. 
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  -->
+  <!-- Uses a less advanced strategy to find the style sheet -->
+  <link rel="stylesheet" href="/static/style.css">
+
+  <h1> This is the homepage. </h1>
+
+  <p>
+    This site is used for testing various Heroku and Flask features
+    that might make it into other projects. Navigate to some other 
+    pages on the site to see various features.
+  </p>
+
+  <table>
+    <tr>
+      <th> Link </th>
+      <th> Purpose </th>
+    </tr>
+    <tr>
+      <td> <a href="/"> This Page </a> </td>
+      <td>
+        To show off how a page might use HTML and link to other pages. Also finds
+        and uses a very simple CSS stylesheet.
+      </td>
+    </tr>    
+    <tr>
+      <td> <a href="/sample"> eflask-app-067.herokuapp.com/sample </a> </td>
+      <td>
+        A Page to link to, which also uses HTML.
+      </td>
+    </tr>    
+    <tr>
+      <td> <a href="/deprecated"> eflask-app-067.herokuapp.com/deprecated </a> </td>
+      <td>
+        Another page to link to. This one is coded slightly differently, sending
+        text directly instead of rendering an HTML file. 
+      </td>
+    </tr>
+    <tr> 
+      <td> <a href="/environment">eflask-app-067.herokuapp.com/environment</a> </td>
+      <td>
+        This page asks the app to read an environment variable, and it says 
+        something different depending on if this is running locally (on my macbook),
+        or on Heroku. This is good for hiding something (ie a password or a database key)
+        from prying eyes. 
+      </td>
+    </tr>        
+  </table>
+
+</html>
