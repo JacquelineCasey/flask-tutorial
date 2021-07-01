@@ -43,6 +43,11 @@ As I go forward I am experimenting with Flask and Heroku some more.
 - The folder `app` will contain code for the server to use, and resources like 
   HTML, CSS, and images that are sent.
 
+- The `.env` file (which is sensitive and not sent to github) contains environment
+  variables for running the site locally. I believe I needed to install `python-dotenv`
+  for the file to actually be loaded. Instead of a `.env` file, Heroku uses config
+  variables that can be configured through the CLI or through the site in Settings.
+
 ---
 
 ## Flask

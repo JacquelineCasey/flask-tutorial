@@ -1,6 +1,7 @@
 # Following the tutorial here: https://www.geeksforgeeks.org/deploy-python-flask-app-on-heroku/
 
 from flask import Flask, render_template
+import os # For checking environment variables.
 
 
 # This app uses the functions with the @app.route() decorator.
@@ -22,6 +23,14 @@ def sample():
 @app.route("/deprecated")
 def old_view():
     return "<h1>Welcome to my website! :D </h1>"
+
+@app.route("/environment")
+def env_check():
+    message = os.getenv("MESSAGE")
+    if message is None:
+        return "<h1>Checking environment variable $MESSAGE: No variable found </h1>"
+    else:
+        return "<h1>Checking environment variable $MESSAGE: " + message + " </h1>"
 
 
 # Runs the app
