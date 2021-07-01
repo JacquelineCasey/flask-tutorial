@@ -5,7 +5,6 @@ import os # For checking environment variables.
 
 
 # This app uses the functions with the @app.route() decorator.
-# Additionally, Procfile tells gunicorn to run this variable.
 app = Flask(__name__) 
   
   
@@ -24,6 +23,7 @@ def sample():
 def old_view():
     return "<h1>Welcome to my website! :D </h1>"
 
+# A demonstration of environment variables
 @app.route("/environment")
 def env_check():
     message = os.getenv("MESSAGE")
@@ -31,8 +31,3 @@ def env_check():
         return "<h1>Checking environment variable $MESSAGE: No variable found </h1>"
     else:
         return "<h1>Checking environment variable $MESSAGE: " + message + " </h1>"
-
-
-# Runs the app
-if __name__ == "__main__":
-    app.run()

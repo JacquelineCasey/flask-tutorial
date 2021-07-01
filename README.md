@@ -47,9 +47,14 @@ As I go forward I am experimenting with Flask and Heroku some more.
   variables for running the site locally. I believe I needed to install `python-dotenv`
   for the file to actually be loaded. Instead of a `.env` file, Heroku uses config
   variables that can be configured through the CLI or through the site in Settings.
+  If a variable is not present, `os.getenv()` will return `None`, so it is import
+  to handle this if necessary.
 
 ---
 
 ## Flask
 
-- TODO: Add notes
+- Proper execution starts via a call to `app.run()` (where app is the Flask 
+  instance created in `main.py`). However, we need not call this function itself
+  anywhere. For production, the `Procfile` tells `gunicorn` to run this 
+  variable, and VSCode (using flask) knows to run it as well.
