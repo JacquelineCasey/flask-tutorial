@@ -74,7 +74,7 @@ As I go forward I am experimenting with Flask and Heroku some more.
   create the right url (that function takes the name (string) of another 
   endpoint function). See `\redirect`
 
-## Request and Session
+### Request and Session
 
 - Flask exposes two important variables to functions running in the `app.route()`
   decorator: `request` and `session`. This resource is very useful for
@@ -102,4 +102,3 @@ As I go forward I am experimenting with Flask and Heroku some more.
   - See the `require_password` decorator in `login.py` for an example of how 
     these can be useful. This decorator can be added to any endpoint function to
     force the user to login before accessing the endpoint.
-
