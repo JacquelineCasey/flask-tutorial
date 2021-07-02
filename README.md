@@ -52,8 +52,6 @@ As I go forward I am experimenting with Flask and Heroku some more.
   CLI or through the site in Settings. If a variable is not present, 
   `os.getenv()` will return `None`, so it is import to handle this if necessary.
 
----
-
 ## Flask
 
 - Proper execution starts via a call to `app.run()` (where app is the Flask 
