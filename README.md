@@ -9,7 +9,7 @@ https://www.geeksforgeeks.org/deploy-python-flask-app-on-heroku/.
 
 As I go forward I am experimenting with Flask and Heroku some more.
 
-## What I Know so Far
+## What I've Learned so Far
 
 ### Deploying the App
 
@@ -50,7 +50,7 @@ As I go forward I am experimenting with Flask and Heroku some more.
   CLI or through the site in Settings. If a variable is not present, 
   `os.getenv()` will return `None`, so it is import to handle this if necessary.
 
-## Flask
+### Flask
 
 - Proper execution starts via a call to `app.run()` (where app is the Flask 
   instance created in `main.py`). However, we need not call this function itself
