@@ -5,7 +5,7 @@ from flask import request, session, redirect, url_for
 from functools import wraps
 
 
-# Adds the login and logout pages. Called in pages.py
+# Adds the login and logout pages. Called in views.py
 def add_login_system(app, login_route, logout_route):
     # This is required to be set before 
     app.secret_key = b'a_very_secret_key'
