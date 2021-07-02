@@ -1,7 +1,7 @@
 
 from flask import session, render_template, redirect, url_for
 from os import getenv
-from .login import require_password, add_login_system
+from app.src.login import require_password, add_login_system
 
 def add_pages(app):
 
