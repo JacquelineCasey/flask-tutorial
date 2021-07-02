@@ -1,7 +1,7 @@
 # Setups the login/logout system and a way to require it for accessing a page.
 # See https://flask.palletsprojects.com/en/2.0.x/quickstart/#sessions
 
-from flask import request, session, redirect, url_for
+from flask import request, session, redirect, render_template, url_for
 from functools import wraps
 
 
@@ -15,12 +15,7 @@ def add_login_system(app, login_route, logout_route):
     def login():
         if request.method == "GET":
             # Temporary solution
-            return '''
-            <form method="post">
-                <p><input type=text name=password>
-                <p><input type=submit value=Login>
-            </form>
-        '''
+            return render_template("login.html")
         elif request.method == "POST":
             # Extremely Temporary Password
             if request.form["password"] == "testpassword":
