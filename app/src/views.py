@@ -28,7 +28,7 @@ def add_views(app):
     # A demonstration of environment variables
     @app.route("/environment")
     def env_check():
-        message = getenv("MESSAGE")
+        message = getenv("EFLASK_MESSAGE")
         if message is None:
             return "<h1>Checking environment variable $MESSAGE: No variable found </h1>"
         else:

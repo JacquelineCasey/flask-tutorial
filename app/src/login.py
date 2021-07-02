@@ -3,23 +3,25 @@
 
 from flask import request, session, redirect, render_template, url_for
 from functools import wraps
+from os import getenv
+from hmac import compare_digest # An anti timing attack string comparison function
 
 
 # Adds the login and logout pages. Called in views.py
 def add_login_system(app, login_route, logout_route):
     # This is required to be set before 
-    app.secret_key = b'a_very_secret_key'
+    app.secret_key = getenv("EFLASK_SECRET_KEY")
     
     # The login page
     @app.route(login_route, methods=["GET", "POST"])
     def login():
         if request.method == "GET":
-            # Temporary solution
             return render_template("login.html")
+
         elif request.method == "POST":
-            # Extremely Temporary Password
-            if request.form["password"] == "testpassword":
-                # Session (dictionary) sends an encrypted cooke upon modification
+            # Using compare_digest() prevents timing attacks.
+            if compare_digest(request.form["password"], getenv("EFLASK_PASSWORD")):
+                # Session (dictionary) sends an encrypted cookie upon modification
                 session["logged_in"] = True; 
 
                 # Send to original target, otherwise send to homepage
@@ -27,6 +29,7 @@ def add_login_system(app, login_route, logout_route):
                     return redirect(request.args["next"])
                 else:
                     return redirect(url_for("home_page"))
+
             else:
                 return "<h1> WRONG PASSWORD </h1>"
     
