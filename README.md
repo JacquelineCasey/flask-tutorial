@@ -9,8 +9,6 @@ https://www.geeksforgeeks.org/deploy-python-flask-app-on-heroku/.
 
 As I go forward I am experimenting with Flask and Heroku some more.
 
----
-
 ## What I Know so Far
 
 ### Deploying the App
