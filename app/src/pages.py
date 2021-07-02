@@ -1,10 +1,13 @@
+# Adds all of the pages of the site to the flask app object.
 
-from flask import session, render_template, redirect, url_for
+from flask import render_template, redirect, url_for
 from os import getenv
 from app.src.login import require_password, add_login_system
 
-def add_pages(app):
 
+# Adds pages to the app object. Called in main.py
+def add_pages(app):
+    # Sets up the login and logout pages
     add_login_system(app, login_route="/login", logout_route="/logout")
 
     # Homepage
@@ -36,6 +39,7 @@ def add_pages(app):
     def redirecting_page():
         return redirect(url_for("old_view"))
     
+    # A secret page that tests out the login feature.
     @app.route("/secret")
     @require_password # This temporarily redirects to /login, but bounces back
     def secret():

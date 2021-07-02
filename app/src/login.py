@@ -1,13 +1,16 @@
+# Setups the login/logout system and a way to require it for accessing a page.
+# See https://flask.palletsprojects.com/en/2.0.x/quickstart/#sessions
 
 from flask import request, session, redirect, url_for
 from functools import wraps
 
+
+# Adds the login and logout pages. Called in pages.py
 def add_login_system(app, login_route, logout_route):
-    # This is used for signing the session cookies, and should be kept VERY SECRET 
-    # (and generated to be MUCH better)
+    # This is required to be set before 
     app.secret_key = b'a_very_secret_key'
     
-    # See https://flask.palletsprojects.com/en/2.0.x/quickstart/#sessions
+    # The login page
     @app.route(login_route, methods=["GET", "POST"])
     def login():
         if request.method == "GET":
@@ -32,14 +35,15 @@ def add_login_system(app, login_route, logout_route):
             else:
                 return "<h1> WRONG PASSWORD </h1>"
     
+    # The logout page
     @app.route(logout_route)
     def logout():
         # remove the username from the session if it's there
         session.pop('logged_in', None)
         return redirect(url_for('home_page'))
-    
 
-# I am definining my own decorator here, for requiring functions to have a login
+# This decorator is used  to make a function require a password.
+# Put this below the @app.route() decorator.
 def require_password(wrapped_func):
     @wraps(wrapped_func)
     def wrapper_check_login(*args, **kwargs):
