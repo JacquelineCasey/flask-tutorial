@@ -42,7 +42,7 @@
       </td>
     </tr>
     <tr> 
-      <td> <a href="/environment">eflask-app-067.herokuapp.com/environment</a> </td>
+      <td> <a href="/environment"> eflask-app-067.herokuapp.com/environment </a> </td>
       <td>
         This page asks the app to read an environment variable, and it says 
         something different depending on if this is running locally (on my macbook),
@@ -51,12 +51,36 @@
       </td>
     </tr> 
     <tr> 
-      <td> <a href="/redirect">eflask-app-067.herokuapp.com/redirect</a> </td>
+      <td> <a href="/redirect"> eflask-app-067.herokuapp.com/redirect </a> </td>
       <td>
         Accessing this link triggers the app to send a redirect message instead
         of an actual webpage. It redirects to the deprecated homepage.
       </td>
-    </tr>       
+    </tr>
+    <tr> 
+      <td> <a href="/secret"> eflask-app-067.herokuapp.com/secret </a> </td>
+      <td>
+        This page is hidden behind a login system, so if you are not logged in,
+        you will be redirected to the login page. The system is set up so it
+        remembers where you wanted to go to after login, however.
+      </td>
+    </tr>
+    <tr> 
+      <td> <a href="/login"> eflask-app-067.herokuapp.com/login </a> </td>
+      <td>
+        This is the login page. Accessing it through this link will cause it to
+        send you back here, but you will still be logged in. Try heading to 
+        the secret page afterwards. <b> PS: The password is "testpassword". </b>
+      </td>
+    </tr>
+    <tr> 
+      <td> <a href="/logout"> eflask-app-067.herokuapp.com/logout </a> </td>
+      <td>
+        Currently, this route triggers an immediate logout, but it immediately
+        redirects you here. Try accessing the secret page again; you will need
+        to log in to see it.
+      </td>
+    </tr>           
   </table>
 
 </html>
