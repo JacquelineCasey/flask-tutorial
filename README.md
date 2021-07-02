@@ -50,7 +50,7 @@ As I go forward I am experimenting with Flask and Heroku some more.
   CLI or through the site in Settings. If a variable is not present, 
   `os.getenv()` will return `None`, so it is import to handle this if necessary.
 
-### Flask
+### Flask 101
 
 - Proper execution starts via a call to `app.run()` (where app is the Flask 
   instance created in `main.py`). However, we need not call this function itself
@@ -73,3 +73,33 @@ As I go forward I am experimenting with Flask and Heroku some more.
 - You can also send a redirect message via `redirect()`. Use `url_for()` to 
   create the right url (that function takes the name (string) of another 
   endpoint function). See `\redirect`
+
+## Request and Session
+
+- Flask exposes two important variables to functions running in the `app.route()`
+  decorator: `request` and `session`. This resource is very useful for
+  understanding these: https://flask.palletsprojects.com/en/2.0.x/quickstart/.
+
+- `request` contains info about the request. For example, if the user sends a
+  form, the info for that form can be obtained via 
+  `request.form["form_item's_name"]`. I used this to get input for the `/login`
+  route.
+
+- `request` also contains url arguments with `request.args["param"]`, which I 
+  used to make the login page return you to your original target.
+
+- `session` is a python dictionary, except it is aware of its own modification 
+  and sends / updates encrypted cookies when it is changed. You need to set
+  `app.secret_key` to use it, however. I used this to store whether or not a 
+  user has logged in.
+
+### Python
+
+- Flask makes use of decorators, which are a very useful construct. In essence,
+  a decorating function wraps an old function, so that calls to the old function
+  call the wrapper, which (depending on context) may call the inner function.
+  See https://realpython.com/primer-on-python-decorators/ for more info.
+  - See the `require_password` decorator in `login.py` for an example of how 
+    these can be useful. This decorator can be added to any endpoint function to
+    force the user to login before accessing the endpoint.
+
