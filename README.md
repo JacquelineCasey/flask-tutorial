@@ -102,3 +102,9 @@ As I go forward I am experimenting with Flask and Heroku some more.
   - See the `require_password` decorator in `login.py` for an example of how 
     these can be useful. This decorator can be added to any endpoint function to
     force the user to login before accessing the endpoint.
+
+### Some more links to consider
+
+- https://flask.palletsprojects.com/en/2.0.x/quickstart/#sessions
+
+- https://elements.heroku.com/addons/heroku-postgresql
